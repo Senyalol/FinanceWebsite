@@ -1,0 +1,202 @@
+/* Стиль контейнера всей страницы */
+.finance-page-container {
+    /* Линейный градиент фона */
+    background: linear-gradient(to bottom, rgb(6, 15, 192), rgb(147, 3, 169));
+    /* Цвет текста */
+    color: white;
+    /* Минимальная высота, занимающая весь экран */
+    min-height: 100vh;
+    /* Размещение элементов flex */
+    display: flex;
+    /* Вертикальное расположение элементов */
+    flex-direction: column;
+    /* Выравнивание элементов по центру по горизонтали */
+    align-items: center;
+    /* Отступы */
+    padding: 20px;
+    /* Учёт отступов в размерах элемента */
+    box-sizing: border-box;
+    /* Размытие фона */
+    backdrop-filter: blur(3px);
+    /* Отступ снизу */
+    padding-bottom: 130px;
+    /* Настройка шрифта */
+    font-family: sans-serif;
+   }
+  
+   /* Стиль контейнера контента */
+   .finance-page-content {
+    /* Размещение элементов flex */
+    display: flex;
+    /* Вертикальное расположение элементов на экранах меньшего размера */
+    flex-direction: column;
+    /* Выравнивание элементов по центру по горизонтали */
+    align-items: center;
+    /* Ширина контейнера */
+    width: 80%;
+    /* Максимальная ширина контейнера */
+    max-width: 1000px;
+    /* Автоматические поля */
+    margin: 20px auto;
+    /* Зазор между элементами */
+    gap: 20px;
+   }
+  
+   /* Медиа-запрос для больших экранов */
+   @media (min-width: 768px) { /* Точка останова для переключения макета */
+    /* Горизонтальное расположение элементов на больших экранах */
+    .finance-page-content {
+    flex-direction: row;
+    /* Выравнивание элементов по левому краю */
+    align-items: flex-start;
+    /* Расстояние между формой и графиком */
+    justify-content: space-between;
+    }
+    /* Ширина контейнера формы */
+    .finance-page-form-container {
+    width: 45%;
+    }
+    /* Ширина контейнера графика */
+    .finance-page-chart-container {
+    width: 45%;
+    }
+   }
+  
+   /* Стиль контейнера формы */
+   .finance-page-form-container {
+    /* Отступы */
+    margin-right: 100px;
+    margin-top: 90px;
+    padding: 30px;
+    /* Цвет фона */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Скругленные углы */
+    border-radius: 10px;
+    /* Тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+   }
+  
+   /* Стиль контейнера графика */
+   .finance-page-chart-container {
+    margin-top: 60px;
+    /* Занимает всю доступную ширину на меньших экранах */
+    width: 100%;
+    /* Высота контейнера */
+    height: 400px;
+   }
+  
+   /* Стиль для полей ввода и кнопок в форме */
+   .finance-page-form-container input,
+   .finance-page-form-container button {
+    /* Ширина элементов, с учётом отступов */
+    width: calc(100% - 20px);
+    /* Отступы сверху и снизу */
+    margin: 10px 0;
+    /* Отступы */
+    padding: 15px;
+    /* Граница */
+    border: none;
+    /* Скругленные углы */
+    border-radius: 5px;
+    /* Цвет фона */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Учёт отступов в размерах элемента */
+    box-sizing: border-box;
+    /* Размер шрифта */
+    font-size: 16px;
+    /* Добавлено: цвет текста белый */
+    color: white; 
+   }
+  
+   /* Стиль кнопки в форме */
+   .finance-page-form-container button {
+    margin-top: 90px;
+    /* Цвет фона */
+    background-color: rgba(142, 68, 173, 0.6);
+    /* Курсор указывает на кликабельность */
+    cursor: pointer;
+    /* Цвет текста */
+    color: rgb(255, 255, 255);
+   }
+  
+   /* Стиль кнопки "Назад" при наведении */
+   .finance-page-form-container button:hover {
+    /* Цвет фона при наведении */
+    background-color: rgba(44, 215, 101, 0.721);
+   }
+  
+  
+   /* Стиль футера */
+   .finance-page-footer {
+    /* Позиционирование */
+    position: fixed;
+    /* Расположение снизу */
+    bottom: 0;
+    /* Расположение слева */
+    left: 0;
+    /* Занимает всю ширину */
+    width: 100%;
+    /* Размер шрифта */
+    font-size: 20px;
+    /* Цвет текста */
+    color: #c7c2c2;
+    /* Отступы */
+    padding: 10px 0;
+    /* Цвет фона */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Выравнивание текста по центру */
+    text-align: center;
+    /* Уровень z-index */
+    z-index: 1;
+   }
+  
+   /* Стиль заголовка */
+   .finance-page-title {
+    /* Позиционирование */
+    position: fixed;
+    /* Расположение сверху */
+    top: 0;
+    /* Расположение слева */
+    left: 0;
+    /* Занимает всю ширину */
+    width: 100%;
+    /* Выравнивание текста по центру */
+    text-align: center;
+    /* Отступы */
+    padding: 10px;
+    /* Цвет фона */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Уровень z-index */
+    z-index: 1;
+    /* Размер шрифта */
+    font-size: 24px;
+   }
+  
+   /* Стиль кнопки "Назад" */
+   .finance-page-back-button {
+    /* Цвет фона */
+    background-color: rgba(142, 68, 173, 0.6);
+    /* Цвет текста */
+    color: white;
+    /* Отступы */
+    padding: 15px 30px;
+    /* Граница */
+    border: none;
+    /* Скругленные углы */
+    border-radius: 10px;
+    /* Курсор указывает на кликабельность */
+    cursor: pointer;
+    /* Отступ снизу */
+    margin-bottom: 20px;
+    /* Размер шрифта */
+    font-size: 18px;
+    /* Анимация */
+    transition: background-color 0.3s ease-in-out;
+   }
+  
+   /* Стиль кнопки "Назад" при наведении */
+   .finance-page-back-button:hover {
+    /* Цвет фона при наведении */
+    background-color: rgba(44, 215, 101, 0.721);
+   }
+    

@@ -1,0 +1,181 @@
+вариант ргб для старт страницы
+/* start.css */
+/* Сброс стилей */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  
+  /* Псевдоэлемент для фонового изображения */
+  .start-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("1.jpg");
+    background-size: cover;
+    opacity: 0.8;
+    z-index: -1;
+    filter: blur(5px);
+  }
+  
+  
+  
+  /* Контейнер для даты и времени */
+  .start-date-time {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    background-color: rgba(86, 94, 53, 0.782);
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Группа кнопок */
+  .start-button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap to next line if needed */
+    margin-top: 60px;
+    gap: 20px;
+  }
+  
+  /* Кнопки */
+  .start-button-group button {
+    background-color: rgba(122, 133, 77, 0.782);
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px;
+    width: 100%;
+    max-width: 250px; /* Added max-width for responsiveness */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 1;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Эффект при наведении на кнопку */
+  .start-button-group button:hover {
+    background-color: rgba(146, 41, 158, 0.9);
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Текст при наведении */
+  .start-button-group button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Появление текста при наведении */
+  .start-button-group button:hover::after {
+    opacity: 1;
+  }
+  
+  /* Заголовок */
+  .start-container .h1 {
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    margin-bottom: 30px;
+  }
+  
+  /* RGB Shimmering Effect */
+  .rgb-shimmer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 600% 100%;
+    animation: rgb-animation 10s ease infinite;
+    opacity: 0.7; /* Added opacity for a softer effect */
+  }
+  
+  @keyframes rgb-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
+  // start.jsx
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './start.css';
+
+function StartPage() {
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const formattedTime = currentTime.toLocaleString();
+
+    return (
+        <div className="start-container">
+            <div className="start-date-time">
+                <p>{formattedTime}</p>
+            </div>
+            <h1 className="start-container h1">Добро пожаловать</h1>
+            <div className="start-button-group">
+                <Link to="/user">
+                    <button data-tooltip="Перейти к странице пользователя">Страница пользователя</button>
+                </Link>
+                <Link to="/category">
+                    <button data-tooltip="Просмотр категорий накоплений">Категории накоплений</button>
+                </Link>
+                <Link to="/transactions">
+                    <button data-tooltip="Список всех транзакций">Список транзакций</button>
+                </Link>
+                <Link to="/finance">
+                    <button data-tooltip="Просмотр и управление финансами">Финансы</button>
+                </Link>
+            </div>
+            <div className="rgb-shimmer"></div>
+        </div>
+    );
+}
+
+export default StartPage;

@@ -1,0 +1,187 @@
+/* Основной контейнер страницы транзакций */
+.transactionPage-transactionsContainer {
+  background: linear-gradient(to bottom, rgb(6, 15, 192), rgb(147, 3, 169)); /* Градиент фона от темно-синего к темно-фиолетовому */
+  display: flex; /* Использование flexbox для компоновки */
+  flex-direction: column; /* Вертикальное выравнивание элементов */
+  align-items: center; /* Горизонтальное центрирование */
+  height: 100vh; /* Занимает всю высоту экрана */
+  min-height: 100%; /* Гарантирует, что занимает как минимум всю высоту окна просмотра */
+  box-sizing: border-box; /* Включает отступы и рамку в общую ширину и высоту элемента */
+  }
+  
+  /* Стиль заголовка списка транзакций */
+  .transactionPage-transactionsHeader {
+  width: 100vw; /* Занимает всю ширину окна просмотра */
+  color: rgb(255, 255, 255, 0.9); /* Белый текст с прозрачностью */
+  background-color: rgba(0, 0, 0, 0.6); /* Черный фон с прозрачностью */
+  margin: 0; /* Отступы отсутствуют */
+  padding: 20px; /* Отступы для текста */
+  text-align: center; /* Текст по центру */
+  font-size: 30px; /* Размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  position: relative; /* Относительное позиционирование */
+  display: flex; /* Использование flexbox для выравнивания */
+  align-items: center; /* Горизонтальное центрирование */
+  justify-content: center; /* Вертикальное центрирование */
+  }
+  
+  /* Стиль таблицы транзакций */
+  .transactionPage-transactionsTable {
+  width: 100%; /* Таблица занимает всю доступную ширину */
+  max-width: 1200px; /* Максимальная ширина таблицы */
+  border-collapse: collapse; /* Слияние границ для более чистого вида */
+  border: 1px solid #ccc; /* Светло-серая рамка */
+  margin: 0 auto; /* Центрирование по горизонтали */
+  box-sizing: border-box; /* Включает отступы и рамку в вычисление ширины */
+  }
+  
+  /* Стиль заголовков и ячеек таблицы */
+  .transactionPage-transactionsTable th,
+  .transactionPage-transactionsTable td {
+  padding: 10px; /* Отступы ячеек */
+  border: 1px solid #ccc; /* Светло-серая рамка */
+  text-align: left; /* Текст выравнивается по левому краю */
+  box-sizing: border-box; /* Включает отступы и рамку в вычисление ширины */
+  }
+  
+  /* Стиль заголовков таблицы */
+  .transactionPage-transactionsTable th {
+  background-color: #f0f0f0; /* Светло-серый фон */
+  font-weight: bold; /* Жирный шрифт */
+  }
+  
+  /* Стиль ячеек таблицы */
+  .transactionPage-transactionsTable td {
+    font-size: 16px; /* Размер шрифта */
+  }
+/* Стиль футера страницы транзакций */
+.transactionPage-transactionsFooter {
+    position: fixed; /* Фиксированное позиционирование внизу */
+    bottom: 0; /* Выравнивание по низу */
+    left: 0; /* Занимает всю ширину */
+    width: 100%; /* Занимает всю ширину */
+    font-size: 20px; /* Размер шрифта */
+    color: #c7c2c2; /* Светло-серый текст */
+    padding: 10px 0; /* Вертикальные отступы */
+    background-color: rgba(0, 0, 0, 0.6); /* Черный фон с прозрачностью */
+    text-align: center; /* Текст по центру */
+    z-index: 1; /* Убедитесь, что находится поверх других элементов */
+  }
+  
+  /* Эффект наведения курсора на строки таблицы */
+  .transactionPage-transactionsTable tr:hover {
+    background-color: #f5f5f5; /* Светло-серый фон при наведении */
+  }
+  
+  /* Стиль кнопки "Назад" */
+  .FromTransactionsToStartBack-button {
+    background-color: rgba(142, 68, 173, 0.6); /* Фиолетовый фон с прозрачностью */
+    color: rgb(255, 255, 255); /* Белый текст */
+    padding: 15px 30px; /* Отступы */
+    border: none; /* Отсутствует рамка */
+    border-radius: 10px; /* Скругленные углы */
+    cursor: pointer; /* Курсор указывает на действие */
+    margin-top: 20px; /* Верхний отступ */
+    font-size: 18px; /* Размер шрифта */
+    transition: background-color 0.3s ease-in-out; /* Плавный переход цвета фона */
+  }
+  
+  /* Эффект наведения курсора на кнопку "Назад" */
+  .FromTransactionsToStartBack-button:hover {
+    background-color: rgba(76, 175, 80, 0.6); /* Зеленый фон при наведении */
+  }
+  
+  /* Контейнер для формы добавления транзакции и контейнера с таблицей/диаграммой */
+  .transaction-container {
+    display: flex; /*  Используем flexbox для компоновки */
+    width: 100%; /* Занимает почти всю доступную ширину */
+    max-width: 1300px; /* Максимальная ширина */
+    margin: 20px auto; /* Центрирование контейнера */
+    justify-content: flex-start; /* Выравнивание элементов по левому краю */
+  }
+  
+  /* Стиль формы добавления транзакции */
+  .transaction-form {
+    flex: 0 0 300px; /* Фиксированная ширина для формы */
+    padding: 20px; /* Внутренние отступы */
+    color: white; /* Цвет текста */
+    background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+    border-radius: 8px; /* Скругленные углы */
+    margin-right: 20px; /* Отступ между формой и таблицей */
+  }
+  
+  /* Стиль меток в форме добавления транзакции */
+  .transaction-form label {
+    display: block; /* Метки занимают всю ширину */
+    margin-bottom: 5px; /* Отступ снизу от меток */
+  }
+  
+  /* Стиль полей ввода и выпадающего списка в форме добавления транзакции */
+  .transaction-form input,
+  .transaction-form select {
+    width: 100%; /* Ширина полей ввода */
+    color: white; /* Цвет текста */
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 10px; /* Отступ снизу */
+    border: 1px solid #ccc; /* Светло-серая рамка */
+    border-radius: 4px; /* Скругленные углы */
+    box-sizing: border-box; /* Включает отступы и рамку в вычисление ширины */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для полей ввода */
+  }
+  
+  /* Стиль основной кнопки */
+  .btn-primary {
+    background-color: #28a745; /* Зеленая кнопка */
+    border-color: #28a745; /* Зеленая рамка */
+  }
+  
+  /* Контейнер для таблицы и диаграммы */
+.table-chart-container {
+    display: flex; /* Используем flexbox */
+    flex: 1; /* Таблица/диаграмма займет остаток пространства */
+    height: auto; /* Разрешаем автоматическое определение высоты */
+  }
+  
+  /* Контейнер для таблицы транзакций */
+  .transactions-table-container {
+    flex: 2; /* Таблица занимает больше места */
+    overflow-y: auto; /* Добавляем прокрутку, если содержимое больше, чем высота */
+    margin-right: 20px; /* Добавлен отступ для лучшего разделения
+ 
+*/
+    
+}
+  
+/* Контейнер для диаграммы */
+.chart-container {
+  flex: 1; /* Диаграмма занимает оставшееся пространство */
+  margin-left: 20px; /* Отступ между таблицей и диаграммой */
+  padding: 20px; /* Внутренние отступы */
+  background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+  border-radius: 8px; /* Скругленные углы */
+  display: flex; /* Разрешаем использование flexbox внутри */
+  flex-direction: column; /* Вертикальное выравнивание элементов внутри */
+  height: 100%; /* Занимает всю высоту родительского контейнера */
+}
+
+/* Стиль для прокручиваемого тела таблицы */
+.transactionPage-transactionsTable tbody {
+display: block; /*  Необходимо для прокрутки */
+max-height: 400px; /* Максимальная высота области прокрутки */
+overflow-y: auto; /*  Добавляем прокрутку по вертикали */
+}
+
+/* Стиль для заголовка таблицы и строк для лучшей адаптивности */
+.transactionPage-transactionsTable thead,
+.transactionPage-transactionsTable tbody tr {
+display: table; /*  Определяем как таблицу */
+width: 100%; /* Ширина 100% */
+table-layout: fixed; /*  Фиксированная ширина столбцов */
+}  
+
+/* Стиль для иконки удаления */
+.delete-icon {
+cursor: pointer;
+color: red;
+margin-left: 10px;
+}
